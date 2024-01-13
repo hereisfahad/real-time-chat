@@ -107,10 +107,10 @@ const AuthForm = () => {
     }
   }
 
-  const socialAction = (action: string) => {
+  const handleSocialLogin = (provider: string) => {
     setIsLoading(true);
 
-    signIn(action, { redirect: false })
+    signIn(provider, { redirect: false })
       .then((callback) => {
         if (callback?.error) {
           toast.error('Invalid credentials!');
@@ -193,14 +193,14 @@ const AuthForm = () => {
             <Button
               size="icon"
               variant="outline"
-              onClick={() => socialAction('github')}
+              onClick={() => handleSocialLogin('github')}
             >
               <BsGithub className="h-4 w-4" />
             </Button>
             <Button
               size="icon"
               variant="outline"
-              onClick={() => socialAction('google')}
+              onClick={() => handleSocialLogin('google')}
             >
               <BsGoogle className="h-4 w-4" />
             </Button>

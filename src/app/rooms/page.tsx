@@ -1,8 +1,18 @@
+"use client"
+
+import clsx from 'clsx'
 import React from 'react'
 
-function page() {
+import EmptyState from '@/components/EmptyState'
+import useRoom from '@/hooks/useRoom'
+
+function page({ }) {
+  const { isOpen } = useRoom();
+
   return (
-    <div>Rooms</div>
+    <div className={clsx('h-full lg:block', isOpen ? 'block' : 'hidden')}>
+      <EmptyState />
+    </div>
   )
 }
 

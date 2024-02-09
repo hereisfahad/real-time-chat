@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='bg-gray-100'>
       <body className={inter.className}>
         <AuthContext>
           <Toaster />

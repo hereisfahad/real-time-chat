@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { HiChat } from 'react-icons/hi';
-import { HiArrowLeftOnRectangle, HiUsers } from 'react-icons/hi2';
 import { signOut } from "next-auth/react";
+import { ArrowLeftEndOnRectangleIcon, ChatBubbleOvalLeftEllipsisIcon, UsersIcon } from "@heroicons/react/24/solid";
 
 import useRoom from "./useRoom";
 
@@ -11,23 +10,23 @@ const useRoutes = () => {
   const { roomId } = useRoom();
 
   const routes = useMemo(() => [
-    { 
-      label: 'Chat', 
-      href: '/rooms', 
-      icon: HiChat,
+    {
+      label: 'Chat',
+      href: '/rooms',
+      icon: ChatBubbleOvalLeftEllipsisIcon,
       active: pathname === '/rooms' || !!roomId
     },
-    { 
-      label: 'Users', 
-      href: '/users', 
-      icon: HiUsers, 
+    {
+      label: 'Users',
+      href: '/users',
+      icon: UsersIcon,
       active: pathname === '/users'
     },
     {
-      label: 'Logout', 
+      label: 'Logout',
       onClick: () => signOut(),
       href: '#',
-      icon: HiArrowLeftOnRectangle, 
+      icon: ArrowLeftEndOnRectangleIcon,
     }
   ], [pathname, roomId]);
 

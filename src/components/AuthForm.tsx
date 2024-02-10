@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
 import { useForm } from 'react-hook-form';
@@ -56,13 +56,13 @@ const AuthForm = () => {
     }
   }, [session?.status, router]);
 
-  const toggleVariant = useCallback(() => {
+  const toggleVariant = () => {
     if (variant === 'LOGIN') {
       setVariant('REGISTER');
     } else {
       setVariant('LOGIN');
     }
-  }, [variant]);
+  };
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);

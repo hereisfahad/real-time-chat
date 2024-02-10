@@ -9,12 +9,12 @@ import {
 } from "@/components/ui/resizable";
 import RoomList from "./components/RoomList";
 
-export default async function ConversationsLayout({
+export default async function RoomsLayout({
   children
 }: {
   children: React.ReactNode,
 }) {
-  const conversations = await getRooms();
+  const rooms = await getRooms();
   const users = await getUsers();
 
   return (
@@ -25,7 +25,7 @@ export default async function ConversationsLayout({
             <RoomList
               users={users}
               title="Messages"
-              initialItems={conversations}
+              initialItems={rooms}
             />
           </div>
         </ResizablePanel>

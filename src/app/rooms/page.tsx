@@ -6,7 +6,7 @@ import React from 'react'
 import EmptyState from '@/components/EmptyState'
 import useRoom from '@/hooks/useRoom'
 
-function page({ }) {
+function Page({ }) {
   const { isOpen } = useRoom();
 
   return (
@@ -16,4 +16,4 @@ function page({ }) {
   )
 }
 
-export default page
+export default Page

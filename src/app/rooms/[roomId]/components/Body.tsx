@@ -45,7 +45,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   }, [roomId]);
 
   useEffect(() => {
-    pusherClient.subscribe(roomId)
+    pusherClient.subscribe(roomId as string)
     bottomRef?.current?.scrollIntoView();
 
     const messageHandler = (message: FullMessageType) => {
@@ -76,7 +76,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
     pusherClient.bind('message:update', updateMessageHandler);
 
     return () => {
-      pusherClient.unsubscribe(roomId)
+      pusherClient.unsubscribe(roomId as string)
       pusherClient.unbind('messages:new', messageHandler)
       pusherClient.unbind('message:update', updateMessageHandler)
     }

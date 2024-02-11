@@ -97,7 +97,7 @@ const RoomBox: React.FC<RoomBoxProps> = ({
               hasSeen ? 'text-gray-500' : 'text-black font-medium'
             )}
           >
-            {lastMessageText}
+            {lastMessageText()}
           </p>
         </div>
       </div>

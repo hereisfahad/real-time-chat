@@ -1,21 +1,14 @@
-"use client"
-
-import { useMemo } from "react";
 import { useParams } from "next/navigation";
 
 const useRoom = () => {
   const params = useParams();
 
-  const roomId = useMemo(() => {
-    return params?.roomId ?? "" as string;
-  }, [params?.roomId]);
+  const roomId = params?.roomId ?? "" as string
 
-  const isOpen = useMemo(() => !!roomId, [roomId]);
-
-  return useMemo(() => ({
-    isOpen,
+  return {
+    isOpen: !!roomId as Boolean,
     roomId
-  }), [isOpen, roomId]);
+  }
 };
 
 export default useRoom;

@@ -1,11 +1,11 @@
 'use client';
 
-import clsx from "clsx";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 
 import { FullMessageType } from "@/types";
 import Avatar from "@/components/Avatar";
+import { cn } from "@/lib/utils";
 
 interface MessageBoxProps {
   data: FullMessageType;
@@ -25,11 +25,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     .join(', ');
 
   return (
-    <div className={clsx('flex gap-3 p-4', isOwn && 'justify-end')}>
-      <div className={clsx(isOwn && 'order-2')}>
+    <div className={cn('flex gap-3 p-', isOwn ? 'justify-end' : '')}>
+      <div className={cn(isOwn ? 'order-2' : '')}>
         <Avatar src={data.sender.image as string} name={data.sender.name as string} />
       </div>
-      <div className={clsx('flex flex-col gap-2', isOwn && 'items-end')}>
+      <div className={cn('flex flex-col gap-2', isOwn ? 'items-end' : '')}>
         <div className="flex items-center gap-1">
           <div className="text-sm text-gray-500">
             {data.sender.name}
@@ -38,7 +38,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
             {format(new Date(data.createdAt), 'p')}
           </div>
         </div>
-        <div className={clsx(
+        <div className={cn(
           'text-sm w-fit overflow-hidden',
           isOwn ? 'bg-sky-500 text-white' : 'bg-gray-100',
           data.image ? 'rounded-md p-0' : 'rounded-full py-2 px-3'

@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import { Room, Message, User } from "@prisma/client";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
-import clsx from "clsx";
 
 import Avatar from "@/components/Avatar";
 import useOtherUser from "@/hooks/useOtherUser";
 import AvatarGroup from "@/components/AvatarGroup";
 import { FullRoomType } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface RoomBoxProps {
   data: FullRoomType,
@@ -68,9 +68,9 @@ const RoomBox: React.FC<RoomBoxProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={clsx(
-        `w-full relative flex items-center space-x-3 p-3 hover:bg-neutral-100rounded-lg transition cursor-pointer`,
-        selected ? 'bg-neutral-100' : 'bg-white'
+      className={cn(
+        `w-full relative flex items-center space-x-3 p-3 hover:bg-neutral-100 rounded-lg transition cursor-pointer`,
+        selected ? 'bg-neutral-300' : 'bg-white'
       )}
     >
       {data.isGroup ? (
@@ -92,7 +92,7 @@ const RoomBox: React.FC<RoomBoxProps> = ({
             )}
           </div>
           <p
-            className={clsx(
+            className={cn(
               `truncate text-sm`,
               hasSeen ? 'text-gray-500' : 'text-black font-medium'
             )}

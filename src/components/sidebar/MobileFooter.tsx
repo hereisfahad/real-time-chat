@@ -8,7 +8,7 @@ const MobileFooter = () => {
   const routes = useRoutes();
   const { isOpen } = useRoom();
 
-  if (isOpen) {
+  if (!isOpen) {
     return null;
   }
 

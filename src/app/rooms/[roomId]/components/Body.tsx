@@ -99,8 +99,6 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
   return (
     <div className="flex-1 overflow-y-auto">
-      <ContextMenu>
-        <ContextMenuTrigger className="flex h-full w-full items-center justify-center text-sm">
           {messages.map((message, i) => (
             <MessageBox
               isLast={i === messages.length - 1}
@@ -108,6 +106,8 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
               data={message}
             />
           ))}
+      <ContextMenu>
+        <ContextMenuTrigger className="flex h-full w-full items-center justify-center text-sm">
         </ContextMenuTrigger>
         <ContextMenuContent className="w-64">
           <ContextMenuItem inset onClick={() => router.push("/rooms")}>

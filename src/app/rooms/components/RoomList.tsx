@@ -5,13 +5,13 @@ import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { MdOutlineGroupAdd } from 'react-icons/md';
-import clsx from "clsx";
 import _find from 'lodash/find';
 
 import useRoom from "@/hooks/useRoom";
 import RoomBox from "./RoomBox";
 import { pusherClient } from "@/lib/pusher";
 import { FullRoomType } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface RoomListProps {
   initialItems: FullRoomType[];
@@ -78,9 +78,9 @@ const RoomList: React.FC<RoomListProps> = ({
 
   return (
     <aside
-      className={clsx(
-        `pb-20 lg:pb-0 overflow-y-auto pl-20`,
-        isOpen ? 'hidden' : 'block w-full left-0')}
+      className={cn(
+        `pb-20 lg:pb-0 overflow-y-auto pl-20 border-gray-200 border-r`,
+        isOpen ? 'block w-full left-0' : 'hidden')}
     >
       <div className="px-5">
         <div className="flex justify-between mb-4 pt-4">

@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 
 interface DesktopItemProps {
   label: string;
@@ -27,7 +28,7 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
     <li onClick={handleClick} key={label}>
       <Link
         href={href}
-        className={clsx(
+        className={cn(
           `group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold text-gray-500 hover:text-black hover:bg-gray-100`,
           active && 'bg-gray-100 text-black'
         )}

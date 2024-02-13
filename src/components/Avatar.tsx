@@ -7,7 +7,7 @@ function Avatar({ src, name }: { src: string, name: string }) {
         <ShadcnAvatar>
             <AvatarImage src={src} />
             <AvatarFallback>{getNameInitials(name)}</AvatarFallback>
-        </ShadcnAvatar >
+        </ShadcnAvatar>
     )
 }
 

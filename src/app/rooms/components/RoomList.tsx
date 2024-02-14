@@ -29,7 +29,7 @@ const RoomList: React.FC<RoomListProps> = ({
   const router = useRouter();
   const session = useSession();
 
-  const { roomId, isOpen } = useRoom();
+  const { roomId } = useRoom();
 
   const pusherKey = useMemo(() => {
     return session.data?.user?.email
@@ -77,11 +77,7 @@ const RoomList: React.FC<RoomListProps> = ({
   }, [pusherKey, router]);
 
   return (
-    <aside
-      className={cn(
-        `pb-20 lg:pb-0 overflow-y-auto pl-20 border-gray-200 border-r`,
-        isOpen ? 'block w-full left-0' : 'hidden')}
-    >
+    <aside className="pb-20 lg:pb-0 overflow-y-auto pl-20 border-gray-200 border-r block w-full left-0">
       <div className="px-5">
         <div className="flex justify-between mb-4 pt-4">
           <div className="text-2xl font-bold text-neutral-800">
